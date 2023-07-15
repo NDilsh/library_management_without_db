@@ -1,14 +1,12 @@
 from django.shortcuts import render, redirect
-from django.db.models import Q
 from .models import Book
 
 
-# Create your views here.
 def book_list(request):
     query = request.GET.get('q')
 
     if query:
-        books = Book.objects.filter(Q(title__icontains=query) | Q(genre__icontains=query))
+        books = Book.objects.filter(title__icontains=query) | Book.objects.filter(genre__icontains=query)
     else:
         books = Book.objects.all()
     return render(request, 'book_manager/book_list.html', {'books': books})
