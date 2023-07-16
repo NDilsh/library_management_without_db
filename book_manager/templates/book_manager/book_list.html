@@ -388,8 +388,8 @@
                     <td>{{ book.publisher }}</td>
                     <td class="btn-container">
 <!--                        <button type="button" class="btn btn-primary" onclick="updateBook(this)" data-index="{{forloop.counter}}">Edit</button>-->
-                        <a href="{% url 'edit_book' book_id=forloop.counter %}" class="btn btn-primary">Edit</a>
-                        <a href="{% url 'delete_book' book_id=forloop.counter %}" class="btn btn-danger">Delete</a>
+                        <a href="{% url 'edit_book' book_id=page_obj.start_index|add:forloop.counter0 %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'delete_book' book_id=page_obj.start_index|add:forloop.counter0 %}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
                 {% empty %}
