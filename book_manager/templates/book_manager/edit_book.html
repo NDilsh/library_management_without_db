@@ -17,7 +17,7 @@
             margin: 0 auto;
             background-color: #f7f7f7;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 10px;
             padding: 20px;
         }
 
@@ -60,9 +60,9 @@
         </div>
     </nav>
 
-    <div class="form-container">
+    <div class="form-container border-success shadow-lg p-3 mb-5 bg-body-tertiary rounded">
         <h1>Edit Book</h1>
-        <form method="post" action="{% url 'edit_book' book.id %}">
+        <form method="post" action="{% url 'edit_book' book_id %}">
             {% csrf_token %}
             <div class="form-group">
                 <label>Title:</label>
