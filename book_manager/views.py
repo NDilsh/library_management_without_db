@@ -3,7 +3,6 @@ from django.shortcuts import render, redirect
 import csv
 from django.core.paginator import Paginator
 
-from book_manager.models import Book
 
 
 def read_books_from_file():

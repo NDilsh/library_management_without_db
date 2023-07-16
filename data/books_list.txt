@@ -1,4 +1,5 @@
 Title,Author,Genre,Height,Publisher
+Fundamentals of Wavelets,"Goswami, Jaideva",signal_processing,228,Wiley
 Data Smart,"Foreman, John",data_science,235,Wiley
 God Created the Integers,"Hawking, Stephen",mathematics,197,Penguin
 Superfreakonomics,"Dubner, Stephen",economics,179,HarperCollins
@@ -118,4 +119,3 @@ Uncommon Wisdom,"Capra, Fritjof",nonfiction,197,Fontana
 One,"Bach, Richard",nonfiction,172,Dell
 Karl Marx Biography,,nonfiction,162,
 To Sir With Love,Braithwaite,fiction,197,Penguin
-asd,,,,
