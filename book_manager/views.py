@@ -26,7 +26,12 @@ def write_books_to_file(books):
         writer = csv.writer(file)
         writer.writerow(['Title', 'Author', 'Genre', 'Height', 'Publisher'])
         for book in books:
-            writer.writerow([book['title'], book['author'], book['genre'], book['height'], book['publisher']])
+            writer.writerow(
+                [book['title'],
+                 book['author'],
+                 book['genre'],
+                 book['height'],
+                 book['publisher']])
 
 # def book_list(request):
 #     query = request.GET.get('q')
@@ -39,6 +44,7 @@ def write_books_to_file(books):
 
 def book_list(request):
     query = request.GET.get('q')
+    search_value = query if query else ''
 
     if query:
             books = [book for book in read_books_from_file() if query.lower() in book['title'].lower() or query.lower() in book['genre'].lower()]
@@ -50,7 +56,7 @@ def book_list(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return render(request, 'book_manager/book_list.html', {'page_obj': page_obj})
+    return render(request, 'book_manager/book_list.html', {'page_obj': page_obj, 'search_value': search_value})
 
 
 
@@ -90,6 +96,9 @@ def edit_book(request, book_id):
         write_books_to_file(books)
         return redirect('book_list')
     return render(request, 'book_manager/edit_book.html', {'book': book, 'book_id': book_id})
+
+
+
 
 def delete_book(request, book_id):
     books = read_books_from_file()
